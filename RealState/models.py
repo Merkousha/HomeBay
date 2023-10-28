@@ -17,6 +17,14 @@ class Area(models.Model):
     name = models.CharField(max_length=100)
     city = models.ForeignKey(City,on_delete=models.CASCADE)    
     
+
+class Builder(models.Model):
+     name= models.TextField(max_length=20)
+     description = models.TextField( max_length=2000)
+     picture=models.ImageField(null=True, blank=True)
+     def __str__(self):
+        return self.name
+
 class Property(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField( max_length=2000)
@@ -28,13 +36,15 @@ class Property(models.Model):
     Features=models.TextField(max_length=4000)
     Total_Price=models.DecimalField(max_digits=14,decimal_places=0)
     Price_per_meter=models.DecimalField(max_digits=14,decimal_places=0)
-    area = models.ForeignKey(Area,on_delete=models.CASCADE)    
-
+    area = models.ForeignKey(Area,on_delete=models.CASCADE)  
+    Builder = models.ForeignKey(Builder,on_delete=models.CASCADE,null=True, blank=True)
     def __str__(self):
         return self.title
-
+    
     class Meta:
         ordering = ['id']    
+
+
         
 class Property_Images(models.Model):
     picture = models.ImageField(null=True, blank=True)

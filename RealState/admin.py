@@ -19,4 +19,3 @@ admin.site.register(City)
 admin.site.register(Area)
 admin.site.register(Property , PropertyModelADmin)
 admin.site.register(Property_Images)
-
