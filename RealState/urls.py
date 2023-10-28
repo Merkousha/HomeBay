@@ -11,3 +11,6 @@ urlpatterns = [
     path('', list , name='list'),
     path('detail/<int:pk>/', detail , name='detail'),
 ]
+
+if settings.DEBUG:  # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -105,9 +105,17 @@
         <div class="container">
             <div class="row">
                 {% for property  in properties  %}
-                <div class="col-md-4">
-                    <div class="card property-card">
-                        <img src="https://c4.wallpaperflare.com/wallpaper/178/501/145/dubai-marina-4k-new-hd-for-desktop-wallpaper-preview.jpg" class="card-img-top" alt="Villa for Sale">
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{property.pictures.first.picture.url}}" class="img-fluid img-thumbnail" alt="{{property.title}}">
+                        <div class="card-body">
+                          <h5 class="card-title">{{property.title}}</h5>
+                          Price: {{ property.Total_Price}}<br/>
+                          <a href="{% url 'detail' property.pk %}" class="btn btn-primary">Details</a>
+                        </div>
+                      </div>
+                    {% comment %} <div class="card property-card">
+                        <img src="{{property.pictures.first.picture.url}}" class="card-img-top" alt="Villa for Sale">
                         <div class="card-body">
                             <h5 class="card-title">{{property.title}}</h5>
                             <div class="card-text">
@@ -122,7 +130,7 @@
                             <br/>
                             <a class="join-button" href="{% url 'detail' property.pk %}">View Details</a>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
                 {% endfor %}
             </div>
