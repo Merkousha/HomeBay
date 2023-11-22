@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0 --noreload 
+#    command: /code/myenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/root/armin/EnglishProgrammer/EnglishProgrammer.sock EnglishProgrammer.wsgi:application
+    volumes:
+      - .:/code
+    ports:
+      - 80:80
