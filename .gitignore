@@ -1,0 +1,9 @@
+venv/
+*.cfg
+*.pyc
+Lib/*
+.vscode/settings.json
+__pycache__/*
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
