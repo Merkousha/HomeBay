@@ -38,6 +38,7 @@ class Property(models.Model):
     Price_per_meter=models.DecimalField(max_digits=14,decimal_places=0)
     area = models.ForeignKey(Area,on_delete=models.CASCADE)  
     Builder = models.ForeignKey(Builder,on_delete=models.CASCADE,null=True, blank=True , related_name='builder')
+    Bathroom = models.DecimalField(max_digits=2 ,decimal_places=0,default=0)
     def __str__(self):
         return self.title
     
@@ -45,7 +46,7 @@ class Property(models.Model):
         ordering = ['id']    
 
 
-        
+     
 class Property_Images(models.Model):
     picture = models.ImageField(null=True, blank=True , upload_to ='images')
     property = models.ForeignKey(Property,on_delete=models.CASCADE , related_name='pictures')    
